@@ -1,4 +1,4 @@
-# Procédure — Serveur de fichiers Samba (Debian 13 / VirtualBox)
+# Procédure : Serveur de fichiers Samba (Debian 13 / VirtualBox)
 
 > Ce document détaille chaque étape réalisée, avec la commande, sa justification technique, et le résultat attendu. Les captures d'écran sont référencées à l'endroit où elles doivent être insérées (dossier `images/`).
 
@@ -50,7 +50,7 @@ Pour chaque VM : Nouvelle machine → Type Linux → Version Debian (64-bit) →
 > [!WARNING]
 > Si « Host-only » n'apparaît pas dans la liste des adaptateurs : VirtualBox → Outils → Réseau → Réseaux uniquement-hôte → Créer.
 
-📷 **`images/01-vm-srvfichiers-parametres.png`** — Paramètres de la VM SrvFichiers (mémoire, disque, réseau).
+📷 **`images/01-vm-srvfichiers-parametres.png`** Paramètres de la VM SrvFichiers (mémoire, disque, réseau).
 
 ---
 
@@ -62,7 +62,7 @@ Langue française, clavier France. Nom d'hôte : `SrvFichiers` ou `SrvSauvegarde
 ### 4.2 Partitionnement
 « Assisté – disque entier » → « Tout dans une seule partition ».
 
-> Les quotas (partie 7) s'appliquent par partition — une seule partition = un seul point à gérer.
+> Les quotas (partie 7) s'appliquent par partition une seule partition = un seul point à gérer.
 
 ### 4.3 Sélection des paquets (tasksel)
 Tenter de décocher « Environnement de bureau » et « GNOME », garder « Utilitaires usuels » + « Serveur SSH ». Installer GRUB sur `/dev/sda`.
@@ -94,7 +94,7 @@ systemctl set-default multi-user.target   # bascule en mode texte
 reboot
 ```
 
-📷 **`images/02-installation-mode-texte.png`** — Invite de connexion en mode texte après redémarrage.
+📷 **`images/02-installation-mode-texte.png`**  Invite de connexion en mode texte après redémarrage.
 
 ```bash
 ls /usr/share/xsessions/     # confirme l'environnement présent (gnome.desktop)
@@ -102,7 +102,7 @@ apt purge gnome-core gnome-shell gdm -y
 apt autoremove --purge -y
 ```
 
-📷 **`images/03-purge-gnome.png`** — Résultat de `apt purge gnome-core gnome-shell gdm -y`.
+📷 **`images/03-purge-gnome.png`**  Résultat de `apt purge gnome-core gnome-shell gdm -y`.
 
 > `purge` supprime aussi les fichiers de configuration (contrairement à `remove`), pour un nettoyage complet.
 
@@ -134,7 +134,7 @@ nmcli connection delete "Wired connection 1"
 nmcli connection add type ethernet ifname enp0s3 con-name NAT-enp0s3 \
   ipv4.method auto connection.autoconnect yes
 
-# Carte Host-only (IP fixe) — adapter l'adresse selon la VM (.10 ou .20)
+# Carte Host-only (IP fixe) adapter l'adresse selon la VM (.10 ou .20)
 nmcli connection add type ethernet ifname enp0s8 con-name HostOnly-enp0s8 \
   ipv4.method manual ipv4.addresses 192.168.56.10/24 connection.autoconnect yes
 ```
@@ -148,7 +148,7 @@ nmcli device status
 ping -c 3 192.168.56.20   # test croisé entre les deux VMs
 ```
 
-📷 **`images/04-nmcli-ping.png`** — `nmcli device status` + ping réussi entre les deux VMs.
+📷 **`images/04-nmcli-ping.png`**  `nmcli device status` + ping réussi entre les deux VMs.
 
 ### 5.4 Mettre à jour le système
 ```bash
@@ -168,13 +168,13 @@ apt install openssh-server -y
 systemctl enable ssh --now
 ```
 
-📷 **`images/05-ssh-connexions.png`** — Connexions SSH réussies depuis le PC hôte vers `srvfichiers@192.168.56.10` et `srvsauvegarde@192.168.56.20`.
+📷 **`images/05-ssh-connexions.png`** Connexions SSH réussies depuis le PC hôte vers `srvfichiers@192.168.56.10` et `srvsauvegarde@192.168.56.20`.
 
 ---
 
 ## 6. Samba (uniquement sur SrvFichiers)
 
-Samba sert de traducteur entre le système Linux (serveur) et les postes Windows (clients), via le protocole **SMB/CIFS** — le langage réseau natif de Windows.
+Samba sert de traducteur entre le système Linux (serveur) et les postes Windows (clients), via le protocole **SMB/CIFS** le langage réseau natif de Windows.
 
 ### 6.1 Installation
 ```bash
@@ -219,7 +219,7 @@ chown root:compta    /srv/partages/compta    && chmod 2770 /srv/partages/compta
 chown root:technique /srv/partages/technique && chmod 2770 /srv/partages/technique
 chown root:root      /srv/partages/commun    && chmod 2777 /srv/partages/commun
 ```
-> Le `2` devant les permissions active le bit **SetGID** : tout nouveau fichier hérite du groupe du dossier, pas du groupe personnel du créateur — condition nécessaire pour que le cloisonnement par service fonctionne dans la durée.
+> Le `2` devant les permissions active le bit **SetGID** : tout nouveau fichier hérite du groupe du dossier, pas du groupe personnel du créateur condition nécessaire pour que le cloisonnement par service fonctionne dans la durée.
 
 Vérification :
 ```bash
@@ -416,10 +416,10 @@ ufw status verbose
 
 ## 10. Tests finaux
 
-### Test 1 — Accès Samba (autorisé / refusé)
+### Test 1 : Accès Samba (autorisé / refusé)
 Déjà couvert en partie 6 (captures 06 et 07).
 
-### Test 2 — Quota dépassé
+### Test 2 : Quota dépassé
 Sur le PC Windows :
 ```cmd
 fsutil file createnew test.bin 600000000
@@ -428,7 +428,7 @@ Copier ce fichier de 600 Mo dans `\\192.168.56.10\Compta` avec le compte `ucompt
 
 📷 **`images/14-quota-test-windows.png`** — Copie bloquée avec le message « espace insuffisant ».
 
-### Test 3 — Log après exécution automatique (cron, pas manuelle)
+### Test 3 : Log après exécution automatique (cron, pas manuelle)
 ```bash
 date                    # heure actuelle
 crontab -e              # remplacer temporairement l'heure par (heure actuelle + 2 min)
@@ -440,7 +440,7 @@ cat /var/log/backup_samba.log
 
 > Remettre ensuite la ligne originale (`0 2 * * *`).
 
-### Test 4 — Coupure réseau pendant la sauvegarde
+### Test 4 : Coupure réseau pendant la sauvegarde
 Sur SrvSauvegarde :
 ```bash
 nmcli connection down HostOnly-enp0s8
