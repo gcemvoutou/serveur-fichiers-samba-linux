@@ -1,5 +1,5 @@
 # Serveur de fichiers Samba: Groupes, quotas et sauvegarde automatisée
-![Samba](https://img.shields.io/badge/Samba-005E9C?logo=samba&logoColor=white)
+![Samba](https://img.shields.io/badge/Samba-005E9C?logo=samba&logoColor=white)![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
 ![Type](https://img.shields.io/badge/Type-Perso-vert)
 
 Projet personnel réalisé dans le cadre de mon BTS SIO (option SISR), visant à construire de A à Z un serveur de fichiers d'entreprise sous Linux : gestion des droits par groupes métiers, quotas disque, sauvegarde automatisée vers un second serveur, et sécurisation par pare-feu.
