@@ -27,23 +27,7 @@ Deux machines virtuelles Debian 13, chacune avec deux interfaces réseau (NAT po
 | **SrvFichiers** | Serveur Samba principal (partages, quotas) | 2048 Mo / 2 vCPU | 192.168.56.10 |
 | **SrvSauvegarde** | Réception des sauvegardes (SSH + rsync) | 512 Mo / 1 vCPU | 192.168.56.20 |
 
-```
-                    Internet
-                        │
-                  ┌─────┴─────┐
-                  │    NAT    │
-                  └─────┬─────┘
-         ┌──────────────┼──────────────┐
-         │                             │
-   ┌─────▼──────┐   Host-only   ┌──────▼──────┐
-   │ SrvFichiers │◄────────────►│ SrvSauvegarde│
-   │192.168.56.10│  192.168.56.0/24  │192.168.56.20│
-   └─────┬───────┘               └─────────────┘
-         │
-         ▼
-   Poste client
-   (explorateur Windows)
-```
+<img src="images/schema.png" width="50%">
 
 ## 🛠️ Compétences et technologies mises en œuvre
 
