@@ -10,7 +10,6 @@ L'infrastructure est entièrement virtualisée sous VirtualBox (deux VMs Debian 
 - Limiter l'usage disque par service avec des **quotas** (soft/hard)
 - Automatiser une **sauvegarde chiffrée** (SSH + rsync) vers un serveur dédié, planifiée via cron
 - Restreindre les flux réseau avec un **pare-feu** (UFW), en cohérence avec une exigence de sécurité (le serveur ne doit pas être exposé à Internet)
-- Documenter l'ensemble comme un livrable professionnel, reproductible et justifié techniquement
 
 ## 🔍 Qu'est-ce que Samba ?
 
