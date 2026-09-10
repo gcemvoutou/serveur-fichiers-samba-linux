@@ -17,7 +17,7 @@ L'infrastructure est entièrement virtualisée sous VirtualBox (deux VMs Debian 
 
 **Samba** est un service réseau open source qui fait le pont entre le monde Linux et le monde Windows. Il implémente le protocole **SMB/CIFS**, le langage natif utilisé par Windows pour le partage de fichiers et d'imprimantes sur un réseau local.
 
-Concrètement, Samba permet à un serveur Linux de publier des dossiers partagés (« shares ») qu'un poste Windows peut ouvrir directement depuis son explorateur de fichiers (`\\adresse-ip\nom-du-partage`), avec une gestion fine des droits d'accès par utilisateur ou par groupe — exactement comme le ferait un serveur de fichiers Windows Server, mais sur une base Linux.
+Concrètement, Samba permet à un serveur Linux de publier des dossiers partagés (« shares ») qu'un poste Windows peut ouvrir directement depuis son explorateur de fichiers (`\\adresse-ip\nom-du-partage`), avec une gestion fine des droits d'accès par utilisateur ou par groupe exactement comme le ferait un serveur de fichiers Windows Server, mais sur une base Linux.
 
 ## 🏗️ Architecture
 
@@ -54,10 +54,10 @@ Le déroulé technique intégral (installation, configuration, tests, captures d
 
 ## 🔎 Points de vigilance rencontrés (retour d'expérience)
 
-Quelques erreurs concrètes rencontrées pendant la réalisation, et corrigées — volontairement gardées visibles dans la procédure plutôt que masquées, car elles font partie de l'apprentissage :
+Quelques erreurs concrètes rencontrées pendant la réalisation, et corrigées volontairement gardées visibles dans la procédure plutôt que masquées, car elles font partie de l'apprentissage :
 
 - Le compte `backup` est un compte système Debian déjà existant (UID 34) : il a fallu utiliser un nom dédié (`backupuser`) pour éviter le conflit.
-- Sur une installation Debian avec bureau, le réseau est géré par **NetworkManager**, pas par `/etc/network/interfaces` — la configuration IP se fait donc via `nmcli`.
+- Sur une installation Debian avec bureau, le réseau est géré par **NetworkManager**, pas par `/etc/network/interfaces` la configuration IP se fait donc via `nmcli`.
 - L'ordre des étapes compte : impossible d'installer `openssh-server` avant que le réseau (carte NAT) ne soit fonctionnel, puisque l'installation nécessite un accès Internet.
 
 ## 👤 Auteur
