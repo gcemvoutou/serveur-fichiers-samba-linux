@@ -36,7 +36,7 @@ Deux VMs, chacune avec deux cartes réseau : une en **NAT** (accès Internet), u
 |---|---|---|---|---|
 | **SrvFichiers** | Serveur Samba principal | 2048 Mo / 2 vCPU | 20 Go dynamique | 192.168.56.10 |
 | **SrvSauvegarde** | Réception des sauvegardes | 512 Mo / 1 vCPU | 15 Go dynamique | 192.168.56.20 |
-| PC hôte | Poste client de test | — | — | 192.168.56.1 (auto) |
+| PC hôte | Poste client de test | — | — | 192.168.56.12 (auto) |
 
 > [!NOTE]
 > Le réseau **Host-only** est préféré au « Réseau interne » : il permet la communication entre les deux VMs **et** l'accès depuis le PC hôte, indispensable pour tester le partage Samba depuis l'explorateur Windows.
