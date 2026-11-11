@@ -144,7 +144,6 @@ nmcli connection add type ethernet ifname enp0s8 con-name HostOnly-enp0s8 \
 ```bash
 nmcli connection up NAT-enp0s3
 nmcli connection up HostOnly-enp0s8
-nmcli device status
 ping -c 3 192.168.56.20   # test croisé entre les deux VMs
 ```
 
