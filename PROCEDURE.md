@@ -153,6 +153,9 @@ nmcli connection up NAT-enp0s3
 nmcli connection up HostOnly-enp0s8
 ping -c 3 192.168.56.10 ou.20   # test croisé entre les deux VMs
 ```
+`nmcli device status` **Permet d'afficher l'état actuel de toutes les interfaces réseau**
+<img src="images/nmcli device status.png" alt="Ping nmcli" width="50%">
+
 **Ping** -c 3 192.168.56.10 depuis SrvSauvergade : Reussi
 
 <img src="images/04-nmcli-ping.10.png" alt="Ping nmcli" width="50%">
