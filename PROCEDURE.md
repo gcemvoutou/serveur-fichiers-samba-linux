@@ -106,7 +106,7 @@ apt autoremove --purge -y
 ```
 **Résultat de `apt purge gnome-core gnome-shell gdm -y`.**
 
-<img src="images/03-purge-gnome.png" alt="Purge Gnome" width="50%">
+<img src="images/03-purge-gnome.png" alt="Purge Gnome" width="52%">
 
 > `purge` supprime aussi les fichiers de configuration (contrairement à `remove`), pour un nettoyage complet.
 
