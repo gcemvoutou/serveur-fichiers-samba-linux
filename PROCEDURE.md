@@ -50,8 +50,7 @@ Pour chaque VM : Nouvelle machine → Type Linux → Version Debian (64-bit) →
 > [!WARNING]
 > Si « Host-only » n'apparaît pas dans la liste des adaptateurs : VirtualBox → Outils → Réseau → Réseaux uniquement-hôte → Créer.
 
-!(images/01-vm-srvfichiers-parametres.png)
- Paramètres de la VM SrvFichiers (mémoire, disque, réseau).
+![Texte alternatif](images/01-vm-srvfichiers-parametres.png) Paramètres de la VM SrvFichiers (mémoire, disque, réseau).
 
 ---
 
