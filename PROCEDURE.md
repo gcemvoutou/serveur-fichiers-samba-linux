@@ -151,10 +151,15 @@ nmcli connection add type ethernet ifname enp0s8 con-name HostOnly-enp0s8 \
 ```bash
 nmcli connection up NAT-enp0s3
 nmcli connection up HostOnly-enp0s8
-ping -c 3 192.168.56.00   # test croisé entre les deux VMs
+ping -c 3 192.168.56.10 ou.20   # test croisé entre les deux VMs
 ```
+**Ping** -c 3 192.168.56.10 depuis SrvSauvergade : Reussi
 
-<img src="images/04-nmcli-ping.png" alt="Ping nmcli" width="50%">
+<img src="images/04-nmcli-ping.10.png" alt="Ping nmcli" width="50%">
+
+**Ping** -c 3 192.168.56.20 depuis SrvFichiers : Reussi
+
+<img src="images/04-nmcli-ping.20.png" alt="Ping nmcli" width="50%">
 
 `nmcli device status` + ping réussi entre les deux VMs.
 
