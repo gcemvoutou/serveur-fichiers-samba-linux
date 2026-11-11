@@ -50,7 +50,7 @@ Pour chaque VM : Nouvelle machine → Type Linux → Version Debian (64-bit) →
 > [!WARNING]
 > Si « Host-only » n'apparaît pas dans la liste des adaptateurs : VirtualBox → Outils → Réseau → Réseaux uniquement-hôte → Créer.
 
-<img src="images/01-vm-srvfichiers-parametres.png" alt="Paramètres VM" width="30%"> 
+<img src="images/01-vm-srvfichiers-parametres.png" alt="Paramètres VM" width="34%"> 
 **Paramètres de la VM SrvFichiers (mémoire, disque, réseau).**
 
 ---
@@ -105,7 +105,7 @@ apt purge gnome-core gnome-shell gdm -y
 apt autoremove --purge -y
 ```
 
-![Purge de Gnome](images/03-purge-gnome.png)
+<img src="images/03-purge-gnome.png" alt="Purge Gnome" width="50%">
 
 **Résultat de `apt purge gnome-core gnome-shell gdm -y`.**
 
@@ -139,13 +139,10 @@ nmcli connection delete "Wired connection 1"
 nmcli connection add type ethernet ifname enp0s3 con-name NAT-enp0s3 \
   ipv4.method auto connection.autoconnect yes
 
-![Connexion name NAT](images/5.2.1-con-name%20NAT.png)
-
 # Carte Host-only (IP fixe) adapter l'adresse selon la VM (.10 ou .20)
 nmcli connection add type ethernet ifname enp0s8 con-name HostOnly-enp0s8 \
   ipv4.method manual ipv4.addresses 192.168.56.10/24 connection.autoconnect yes
 
-![Connexion name HostOnly](images/5.2.2-con-name%20HostOnly.png)
 
 ```
 
@@ -157,7 +154,9 @@ nmcli connection up HostOnly-enp0s8
 ping -c 3 192.168.56.00   # test croisé entre les deux VMs
 ```
 
-📷 **`images/04-nmcli-ping.png`**  `nmcli device status` + ping réussi entre les deux VMs.
+<img src="images/04-nmcli-ping.png" alt="Ping nmcli" width="50%">
+
+`nmcli device status` + ping réussi entre les deux VMs.
 
 ### 5.4 Mettre à jour le système
 ```bash
