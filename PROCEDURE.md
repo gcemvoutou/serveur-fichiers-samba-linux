@@ -113,6 +113,7 @@ apt autoremove --purge -y
 ```bash
 systemctl get-default   # doit maintenant répondre : multi-user.target
 ```
+<img src="images/multi-user.target.png" alt="Multi-user" width="50%">
 
 ---
 
