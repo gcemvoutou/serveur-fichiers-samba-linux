@@ -50,7 +50,7 @@ Pour chaque VM : Nouvelle machine → Type Linux → Version Debian (64-bit) →
 > [!WARNING]
 > Si « Host-only » n'apparaît pas dans la liste des adaptateurs : VirtualBox → Outils → Réseau → Réseaux uniquement-hôte → Créer.
 
-![Paramètres de la VM SrvFichiers](images/01-vm-srvfichiers-parametres.png) **Paramètres de la VM SrvFichiers (mémoire, disque, réseau).**
+<img src="images/01-vm-srvfichiers-parametres.png" alt="Paramètres VM" width="50%"> **Paramètres de la VM SrvFichiers (mémoire, disque, réseau).**
 
 ---
 
@@ -94,7 +94,8 @@ systemctl set-default multi-user.target   # bascule en mode texte
 reboot
 ```
 
-![Installation en mode texte](images/02-installation-mode-texte.png)
+<img src="images/02-installation-mode-texte.png" alt="Mode texte" width="50%">
+
 **Invite de connexion en mode texte après redémarrage.**
 
 ```bash
