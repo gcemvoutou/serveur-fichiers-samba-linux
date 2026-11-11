@@ -106,14 +106,14 @@ apt autoremove --purge -y
 ```
 **Résultat de `apt purge gnome-core gnome-shell gdm -y`.**
 
-<img src="images/03-purge-gnome.png" alt="Purge Gnome" width="52%">
+<img src="images/03-purge-gnome.png" alt="Purge Gnome" width="55%">
 
 > `purge` supprime aussi les fichiers de configuration (contrairement à `remove`), pour un nettoyage complet.
 
 ```bash
 systemctl get-default   # doit maintenant répondre : multi-user.target
 ```
-<img src="images/multi-user.target.png" alt="Multi-user" width="45%">
+<img src="images/multi-user.target.png" alt="Multi-user" width="40%">
 
 ---
 
