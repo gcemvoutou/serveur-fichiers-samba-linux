@@ -94,20 +94,19 @@ su -                                      # Debian ne met pas l'utilisateur dans
 systemctl set-default multi-user.target   # bascule en mode texte
 reboot
 ```
+**Invite de connexion en mode texte après redémarrage.**
 
 <img src="images/02-installation-mode-texte.png" alt="Mode texte" width="30%">
 
-**Invite de connexion en mode texte après redémarrage.**
 
 ```bash
 ls /usr/share/xsessions/     # confirme l'environnement présent (gnome.desktop)
 apt purge gnome-core gnome-shell gdm -y
 apt autoremove --purge -y
 ```
+**Résultat de `apt purge gnome-core gnome-shell gdm -y`.**
 
 <img src="images/03-purge-gnome.png" alt="Purge Gnome" width="50%">
-
-**Résultat de `apt purge gnome-core gnome-shell gdm -y`.**
 
 > `purge` supprime aussi les fichiers de configuration (contrairement à `remove`), pour un nettoyage complet.
 
